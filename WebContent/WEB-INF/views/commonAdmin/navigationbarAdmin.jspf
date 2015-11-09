@@ -1,0 +1,20 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="adminCategoria">ConnectedToys</a>
+            
+            <ul class="nav">
+                <li><a href="newCategoria">Criar Categoria</a></li>
+                <li><a href="newProduto">Criar Produto</a></li>
+                  <li><a href="newAdministrator">Criar Administrador</a></li>
+            </ul>
+            
+            <ul class="nav pull-right">
+                <li><a href="logout">Sair</a></li>
+            </ul>
+            
+        </div>
+    </div>
+</div>

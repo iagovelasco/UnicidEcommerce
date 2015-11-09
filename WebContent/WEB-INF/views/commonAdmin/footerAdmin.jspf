@@ -1,0 +1,18 @@
+<footer>
+    <div class="container">
+        <div class="row well">
+            <div align="center">
+            <p>&copy; 2015 ConnectedToys</p>
+        </div>
+    </div>
+    </div>
+</footer>
+
+
+<!-- Le javascript -->
+<script src="static/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="static/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="static/js/bootstrap-datepicker.js" type="text/javascript"></script>
+
+</body>
+</html>

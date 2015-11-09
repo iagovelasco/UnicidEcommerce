@@ -1,0 +1,174 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from AdministradorDAOService WSDL service -->
+
+  <service name="AdministradorDAO" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://dao.connectedToys.com.br"/>
+      <parameter name="wsdlServiceElement" value="AdministradorDAOService"/>
+      <parameter name="schemaQualified" value="http://bean.connectedToys.com.br,http://dao.connectedToys.com.br"/>
+      <parameter name="wsdlServicePort" value="AdministradorDAO"/>
+      <parameter name="className" value="br.com.connectedToys.dao.AdministradorDAOSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="AdministradorDAO"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="atualizar" qname="operNS:atualizar" xmlns:operNS="http://dao.connectedToys.com.br" soapAction="" >
+        <parameter qname="pns:administrador" xmlns:pns="http://dao.connectedToys.com.br" type="tns:Administrador" xmlns:tns="http://bean.connectedToys.com.br"/>
+      </operation>
+      <operation name="administrador" qname="operNS:administrador" xmlns:operNS="http://dao.connectedToys.com.br" returnQName="retNS:administradorReturn" xmlns:retNS="http://dao.connectedToys.com.br" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://dao.connectedToys.com.br" returnItemQName="tns:item" xmlns:tns="http://dao.connectedToys.com.br" soapAction="" >
+      </operation>
+      <operation name="excluir" qname="operNS:excluir" xmlns:operNS="http://dao.connectedToys.com.br" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://dao.connectedToys.com.br" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="salvar" qname="operNS:salvar" xmlns:operNS="http://dao.connectedToys.com.br" soapAction="" >
+        <parameter qname="pns:administrador" xmlns:pns="http://dao.connectedToys.com.br" type="tns:Administrador" xmlns:tns="http://bean.connectedToys.com.br"/>
+      </operation>
+      <operation name="editar" qname="operNS:editar" xmlns:operNS="http://dao.connectedToys.com.br" soapAction="" >
+        <parameter qname="pns:administrador" xmlns:pns="http://dao.connectedToys.com.br" type="tns:Administrador" xmlns:tns="http://bean.connectedToys.com.br"/>
+      </operation>
+      <operation name="procurarAdministrador" qname="operNS:procurarAdministrador" xmlns:operNS="http://dao.connectedToys.com.br" returnQName="retNS:procurarAdministradorReturn" xmlns:retNS="http://dao.connectedToys.com.br" returnType="rtns:Administrador" xmlns:rtns="http://bean.connectedToys.com.br" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://dao.connectedToys.com.br" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="validarAdministrador" qname="operNS:validarAdministrador" xmlns:operNS="http://dao.connectedToys.com.br" returnQName="retNS:validarAdministradorReturn" xmlns:retNS="http://dao.connectedToys.com.br" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:email" xmlns:pns="http://dao.connectedToys.com.br" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:senha" xmlns:pns="http://dao.connectedToys.com.br" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="administrador excluir atualizar editar procurarAdministrador salvar validarAdministrador"/>
+
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>salvar"
+        type="java:br.com.connectedToys.dao.Salvar"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>excluir"
+        type="java:br.com.connectedToys.dao.Excluir"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>excluirResponse"
+        type="java:br.com.connectedToys.dao.ExcluirResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>salvarResponse"
+        type="java:br.com.connectedToys.dao.SalvarResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:ArrayOf_xsd_anyType"
+        type="java:java.lang.Object[]"
+        innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>atualizarResponse"
+        type="java:br.com.connectedToys.dao.AtualizarResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>administrador"
+        type="java:br.com.connectedToys.dao.Administrador"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>procurarAdministradorResponse"
+        type="java:br.com.connectedToys.dao.ProcurarAdministradorResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>validarAdministrador"
+        type="java:br.com.connectedToys.dao.ValidarAdministrador"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>validarAdministradorResponse"
+        type="java:br.com.connectedToys.dao.ValidarAdministradorResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>procurarAdministrador"
+        type="java:br.com.connectedToys.dao.ProcurarAdministrador"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>editar"
+        type="java:br.com.connectedToys.dao.Editar"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://bean.connectedToys.com.br"
+        qname="ns:Administrador"
+        type="java:br.com.connectedToys.bean.Administrador"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>administradorResponse"
+        type="java:br.com.connectedToys.dao.AdministradorResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>editarResponse"
+        type="java:br.com.connectedToys.dao.EditarResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://dao.connectedToys.com.br"
+        qname="ns:>atualizar"
+        type="java:br.com.connectedToys.dao.Atualizar"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

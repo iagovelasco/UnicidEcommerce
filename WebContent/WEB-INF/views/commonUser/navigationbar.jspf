@@ -1,0 +1,19 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="index.jsp">ConnectedToys</a>
+            
+            <ul class="nav">
+                <li><a href="index.jsp">Home</a></li>
+                <li><a href="about">Sobre</a></li>
+            </ul>
+            
+            <ul class="nav pull-right">
+                <li><a href="login">Login</a></li>
+            </ul>
+            
+        </div>
+    </div>
+</div>

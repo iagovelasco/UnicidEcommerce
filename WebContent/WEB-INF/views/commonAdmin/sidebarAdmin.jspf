@@ -1,0 +1,14 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<div class="well sidebar-nav">
+    <ul class="nav nav-list">
+        <li class="nav-header">Área Administrativa</li>
+        <li class="divider"></li>
+        <li><a href="adminCategoria"><i class="icon-file"></i> Categoria</a></li>
+        <li><a href="adminProduto"><i class="icon-file"></i>  Produto</a></li>
+        <li class="nav-header">Novo Administrador</li>
+        <li class="divider"></li>
+        <li><a href="adminUser"><i class="icon-file"></i> Usuário</a></li>
+    </ul>
+</div>
+

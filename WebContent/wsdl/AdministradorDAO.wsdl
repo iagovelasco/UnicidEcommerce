@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://dao.connectedToys.com.br" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://dao.connectedToys.com.br" xmlns:intf="http://dao.connectedToys.com.br" xmlns:tns1="http://bean.connectedToys.com.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://dao.connectedToys.com.br" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://bean.connectedToys.com.br"/>
+   <element name="atualizar">
+    <complexType>
+     <sequence>
+      <element name="administrador" type="tns1:Administrador"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="atualizarResponse">
+    <complexType/>
+   </element>
+   <element name="administrador">
+    <complexType/>
+   </element>
+   <element name="administradorResponse">
+    <complexType>
+     <sequence>
+      <element name="administradorReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="excluir">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="excluirResponse">
+    <complexType/>
+   </element>
+   <element name="salvar">
+    <complexType>
+     <sequence>
+      <element name="administrador" type="tns1:Administrador"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="salvarResponse">
+    <complexType/>
+   </element>
+   <element name="editar">
+    <complexType>
+     <sequence>
+      <element name="administrador" type="tns1:Administrador"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="editarResponse">
+    <complexType/>
+   </element>
+   <element name="procurarAdministrador">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="procurarAdministradorResponse">
+    <complexType>
+     <sequence>
+      <element name="procurarAdministradorReturn" type="tns1:Administrador"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="validarAdministrador">
+    <complexType>
+     <sequence>
+      <element name="email" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="validarAdministradorResponse">
+    <complexType>
+     <sequence>
+      <element name="validarAdministradorReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://bean.connectedToys.com.br" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://dao.connectedToys.com.br"/>
+   <complexType name="Administrador">
+    <sequence>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="nome" nillable="true" type="xsd:string"/>
+     <element name="senha" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="atualizarRequest">
+
+      <wsdl:part element="impl:atualizar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="administradorResponse">
+
+      <wsdl:part element="impl:administradorResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="salvarResponse">
+
+      <wsdl:part element="impl:salvarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="excluirRequest">
+
+      <wsdl:part element="impl:excluir" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="validarAdministradorResponse">
+
+      <wsdl:part element="impl:validarAdministradorResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="procurarAdministradorRequest">
+
+      <wsdl:part element="impl:procurarAdministrador" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="salvarRequest">
+
+      <wsdl:part element="impl:salvar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="atualizarResponse">
+
+      <wsdl:part element="impl:atualizarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="excluirResponse">
+
+      <wsdl:part element="impl:excluirResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="editarResponse">
+
+      <wsdl:part element="impl:editarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="validarAdministradorRequest">
+
+      <wsdl:part element="impl:validarAdministrador" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="editarRequest">
+
+      <wsdl:part element="impl:editar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="procurarAdministradorResponse">
+
+      <wsdl:part element="impl:procurarAdministradorResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="administradorRequest">
+
+      <wsdl:part element="impl:administrador" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="AdministradorDAO">
+
+      <wsdl:operation name="atualizar">
+
+         <wsdl:input message="impl:atualizarRequest" name="atualizarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:atualizarResponse" name="atualizarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="administrador">
+
+         <wsdl:input message="impl:administradorRequest" name="administradorRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:administradorResponse" name="administradorResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="excluir">
+
+         <wsdl:input message="impl:excluirRequest" name="excluirRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:excluirResponse" name="excluirResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="salvar">
+
+         <wsdl:input message="impl:salvarRequest" name="salvarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:salvarResponse" name="salvarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="editar">
+
+         <wsdl:input message="impl:editarRequest" name="editarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:editarResponse" name="editarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="procurarAdministrador">
+
+         <wsdl:input message="impl:procurarAdministradorRequest" name="procurarAdministradorRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:procurarAdministradorResponse" name="procurarAdministradorResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="validarAdministrador">
+
+         <wsdl:input message="impl:validarAdministradorRequest" name="validarAdministradorRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:validarAdministradorResponse" name="validarAdministradorResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="AdministradorDAOSoapBinding" type="impl:AdministradorDAO">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="atualizar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="atualizarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="atualizarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="administrador">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="administradorRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="administradorResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="excluir">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="excluirRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="excluirResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="salvar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="salvarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="salvarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="editar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="editarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="editarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="procurarAdministrador">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="procurarAdministradorRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="procurarAdministradorResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="validarAdministrador">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="validarAdministradorRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="validarAdministradorResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="AdministradorDAOService">
+
+      <wsdl:port binding="impl:AdministradorDAOSoapBinding" name="AdministradorDAO">
+
+         <wsdlsoap:address location="http://localhost:8080/eCommerce/services/AdministradorDAO"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
